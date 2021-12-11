@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="Controller" customModule="mvc_ifyme_capn" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KM9-ef-BLd" customClass="CustomPrettyView" customModule="mvc_ifyme_capn" customModuleProvider="target">
+                                <rect key="frame" x="82" y="298" width="250" height="300"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="XTF-Xu-Qtv">
+                                        <rect key="frame" x="20" y="20" width="210" height="260"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="I really want the" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5rX-J3-7O9">
+                                                <rect key="frame" x="0.0" y="0.0" width="210" height="52"/>
+                                                <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="22"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="IPHONE MODEL" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z1w-wM-UcN">
+                                                <rect key="frame" x="0.0" y="52" width="210" height="52"/>
+                                                <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="22"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="in IPHONE COLOR" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mhf-bD-PLh">
+                                                <rect key="frame" x="0.0" y="104" width="210" height="52"/>
+                                                <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="22"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="and it costs" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FKt-v7-bfM">
+                                                <rect key="frame" x="0.0" y="156" width="210" height="52"/>
+                                                <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="22"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$IPHONE PRICE" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="om3-9g-QDc" customClass="CustomLabel" customModule="mvc_ifyme_capn" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="208" width="210" height="52"/>
+                                                <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="22"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstItem="XTF-Xu-Qtv" firstAttribute="top" secondItem="KM9-ef-BLd" secondAttribute="top" constant="20" id="1uF-M1-K2h"/>
+                                    <constraint firstAttribute="bottom" secondItem="XTF-Xu-Qtv" secondAttribute="bottom" constant="20" id="XDd-69-fju"/>
+                                    <constraint firstItem="XTF-Xu-Qtv" firstAttribute="leading" secondItem="KM9-ef-BLd" secondAttribute="leading" constant="20" id="ZZp-EI-9w2"/>
+                                    <constraint firstAttribute="width" constant="250" id="ce4-lC-eIQ"/>
+                                    <constraint firstAttribute="trailing" secondItem="XTF-Xu-Qtv" secondAttribute="trailing" constant="20" id="eaK-I5-utQ"/>
+                                    <constraint firstAttribute="height" constant="300" id="w4a-VF-ATb"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZuA-QX-cEt">
+                                <rect key="frame" x="180.5" y="628" width="53" height="30"/>
+                                <state key="normal" title="Change"/>
+                                <connections>
+                                    <action selector="handleChange:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Zi7-uK-PeH"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="ZuA-QX-cEt" firstAttribute="top" secondItem="KM9-ef-BLd" secondAttribute="bottom" constant="30" id="CYJ-nZ-WNc"/>
+                            <constraint firstItem="KM9-ef-BLd" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="KpS-OX-5La"/>
+                            <constraint firstItem="ZuA-QX-cEt" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="QYB-rr-dUD"/>
+                            <constraint firstItem="KM9-ef-BLd" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="Zyt-Hp-mHx"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <connections>
+                        <outlet property="iphoneColorLabel" destination="mhf-bD-PLh" id="uMr-W8-4LC"/>
+                        <outlet property="iphoneNameLabel" destination="z1w-wM-UcN" id="Un2-Uh-PyL"/>
+                        <outlet property="iphonePriceLabel" destination="om3-9g-QDc" id="Hkh-lN-UlU"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="131.8840579710145" y="132.58928571428572"/>
+        </scene>
+    </scenes>
+</document>
