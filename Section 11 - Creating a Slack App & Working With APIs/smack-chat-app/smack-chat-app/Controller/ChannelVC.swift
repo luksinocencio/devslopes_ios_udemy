@@ -7,6 +7,7 @@ class ChannelVC: UIViewController {
     @IBOutlet weak var loginBtn: UIButton!
     @IBOutlet weak var userImg: CircleImage!
     @IBOutlet weak var tablewView: UITableView!
+    @IBOutlet weak var btnAddChannel: UIButton!
     
     @IBAction func prepareForUnwind(segue: UIStoryboardSegue) {}
     // MARK: - Lifecycle
@@ -18,6 +19,8 @@ class ChannelVC: UIViewController {
         
         self.revealViewController()?.rearViewRevealWidth = self.view.frame.size.width - 60
         NotificationCenter.default.addObserver(self, selector: #selector(ChannelVC.userDataDidChange(_:)), name: NOTIF_USER_DATA_DID_CHANGE, object: nil)
+        
+        setupSocketService()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -38,6 +41,18 @@ class ChannelVC: UIViewController {
         }
     }
     
+    func createAlert() {
+        let alert = UIAlertController(title: "Ops!", message: "You need to be loggin.", preferredStyle: UIAlertController.Style.alert)
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    func setupSocketService() {
+        SocketService.instance.getChannel { success in
+            self.tablewView.reloadData()
+        }
+    }
+    
     // MARK: - Selectors
     
     @objc func userDataDidChange(_ notif: Notification) {
@@ -53,6 +68,16 @@ class ChannelVC: UIViewController {
             present(profile, animated: true, completion: nil)
         } else {
             performSegue(withIdentifier: TO_LOGIN, sender: nil)
+        }
+    }
+    
+    @IBAction func addChannelPressed(_ sender: Any) {
+        if AuthService.instance.isLoggedIn {
+            let addChannel = AddChannelVC()
+            addChannel.modalPresentationStyle = .custom
+            present(addChannel, animated: true, completion: nil)
+        } else {
+            createAlert()
         }
     }
 }
