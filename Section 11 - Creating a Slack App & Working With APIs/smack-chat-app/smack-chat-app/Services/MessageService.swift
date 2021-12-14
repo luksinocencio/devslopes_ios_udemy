@@ -6,6 +6,7 @@ class MessageService {
     static let instance = MessageService()
     
     var channels = [Channel]()
+    var selectedChannel: Channel?
     
     func findAllChannel(completion: @escaping CompletionHandler) {
         
@@ -19,6 +20,7 @@ class MessageService {
             case .success:
                 guard let data = response.data else { return }
                 self.setMessage(data: data)
+                NotificationCenter.default.post(name: NOTIF_CHANNELS_LOADED, object: nil)
                 completion(true)
             case .failure(let error):
                 completion(false)
@@ -31,5 +33,9 @@ class MessageService {
         let decoder = JSONDecoder()
         guard let channel = try? decoder.decode([Channel].self, from: data) else { return }
         channels = channel
+    }
+    
+    func clearChannels() {
+        channels.removeAll()
     }
 }

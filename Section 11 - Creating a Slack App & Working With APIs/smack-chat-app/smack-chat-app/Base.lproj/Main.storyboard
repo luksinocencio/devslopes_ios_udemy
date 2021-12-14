@@ -573,6 +573,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="lbChannelName" destination="Scu-3O-Laf" id="X3d-Lz-Syx"/>
                         <outlet property="menuBtn" destination="Svu-gc-Fvn" id="CsD-NU-RWZ"/>
                     </connections>
                 </viewController>
