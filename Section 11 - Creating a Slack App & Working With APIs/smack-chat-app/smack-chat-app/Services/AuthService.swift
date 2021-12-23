@@ -17,8 +17,8 @@ class AuthService {
     }
     
     var authToken: String {
-        get {
-            return defaults.value(forKey: TOKEN_KEY) as! String
+        get  {
+            return defaults.string(forKey: TOKEN_KEY) ?? ""
         }
         set {
             defaults.set(newValue, forKey: TOKEN_KEY)
@@ -26,8 +26,8 @@ class AuthService {
     }
     
     var userEmail: String {
-        get {
-            return defaults.value(forKey: USER_EMAIL) as! String
+        get  {
+            return defaults.string(forKey: USER_EMAIL) ?? ""
         }
         set {
             defaults.set(newValue, forKey: USER_EMAIL)
