@@ -1,11 +1,12 @@
 import UIKit
 
 class ChatVC: UIViewController {
-
+    
     // MARK: - IBOutlets
     
     @IBOutlet weak var menuBtn: UIButton!
     @IBOutlet weak var lbChannelName: UILabel!
+    @IBOutlet weak var tfMessageBox: UITextField!
     
     // MARK: - Lifecycle
     
@@ -15,6 +16,8 @@ class ChatVC: UIViewController {
         setupNotification()
         checkEmail()
         getMessage()
+        hideKeyboardOnTapAround()
+        view.bindToKeyboard()
     }
     
     // MARK: - Methods
@@ -47,7 +50,12 @@ class ChatVC: UIViewController {
     func onLoginGetMessages() {
         MessageService.instance.findAllChannel { success in
             if success {
-                // TODO: - stuff with channels
+                if MessageService.instance.channels.count > 0 {
+                    MessageService.instance.selectedChannel = MessageService.instance.channels[0]
+                    self.updateWithChannel()
+                } else {
+                    self.lbChannelName.text = "No channels yet!"
+                }
             }
         }
     }
@@ -55,6 +63,20 @@ class ChatVC: UIViewController {
     func updateWithChannel() {
         let channelName = MessageService.instance.selectedChannel?.name ?? ""
         lbChannelName.text = "#\(channelName)"
+        getMessages()
+    }
+    
+    func getMessages() {
+        guard let channelId = MessageService.instance.selectedChannel?._id else { return }
+        MessageService.instance.findAllMessageForChannel(channelId: channelId) { success in
+            print("Olha aqui")
+        }
+    }
+    
+    func hideKeyboardOnTapAround() {
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.hideKeyboard))
+        tap.cancelsTouchesInView = false
+        self.view.addGestureRecognizer(tap)
     }
     
     // MARK: - Selectors
@@ -70,4 +92,26 @@ class ChatVC: UIViewController {
     @objc func channelSelected(_ notif: Notification) {
         updateWithChannel()
     }
+    
+    @objc func hideKeyboard() {
+        self.view.endEditing(true)
+    }
+    
+    // MARK: - Actions
+    
+    @IBAction func sendMessagePressed(_ sender: UIButton) {
+        if AuthService.instance.isLoggedIn {
+            guard let channelId = MessageService.instance.selectedChannel?._id else { return }
+            guard let message = tfMessageBox.text else { return }
+            let userId = UserDataService.instance.id
+                    
+            SocketService.instance.addMessage(messageBody: message, userId: userId, channelId: channelId) { success in
+                if success {
+                    self.tfMessageBox.text = ""
+                    self.tfMessageBox.resignFirstResponder()
+                }
+            }
+        }
+    }
+    
 }

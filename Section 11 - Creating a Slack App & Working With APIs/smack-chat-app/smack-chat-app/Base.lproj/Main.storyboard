@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
@@ -563,18 +563,44 @@
                                     <constraint firstItem="Svu-gc-Fvn" firstAttribute="leading" secondItem="o0w-8Z-a1y" secondAttribute="leading" constant="12" id="eTj-gT-MgC"/>
                                 </constraints>
                             </view>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Message:" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Rr3-Ce-wkM">
+                                <rect key="frame" x="0.0" y="822" width="414" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="mA9-8l-f3h"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GGh-jr-cHj">
+                                <rect key="frame" x="358" y="822" width="40" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="40" id="2yp-gh-Hfr"/>
+                                    <constraint firstAttribute="height" constant="40" id="Oc7-dP-0Tp"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="send" title=" "/>
+                                <connections>
+                                    <action selector="sendMessagePressed:" destination="j7F-ja-jVg" eventType="touchUpInside" id="xNf-jF-zig"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vqS-OV-bQH"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="o0w-8Z-a1y" firstAttribute="leading" secondItem="vqS-OV-bQH" secondAttribute="leading" id="6XA-3o-psO"/>
+                            <constraint firstItem="GGh-jr-cHj" firstAttribute="centerY" secondItem="Rr3-Ce-wkM" secondAttribute="centerY" id="81Y-aB-Bcl"/>
+                            <constraint firstItem="Rr3-Ce-wkM" firstAttribute="leading" secondItem="vqS-OV-bQH" secondAttribute="leading" id="PVn-CO-66p"/>
                             <constraint firstItem="o0w-8Z-a1y" firstAttribute="trailing" secondItem="vqS-OV-bQH" secondAttribute="trailing" id="TE4-w3-Uof"/>
+                            <constraint firstItem="Rr3-Ce-wkM" firstAttribute="trailing" secondItem="vqS-OV-bQH" secondAttribute="trailing" id="blR-zk-1Fb"/>
+                            <constraint firstItem="Rr3-Ce-wkM" firstAttribute="bottom" secondItem="vqS-OV-bQH" secondAttribute="bottom" id="lL8-oG-nd4"/>
+                            <constraint firstItem="vqS-OV-bQH" firstAttribute="trailing" secondItem="GGh-jr-cHj" secondAttribute="trailing" constant="16" id="vpk-dR-BGU"/>
                             <constraint firstItem="o0w-8Z-a1y" firstAttribute="top" secondItem="L5b-zt-w9m" secondAttribute="top" id="yua-Wc-smj"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="lbChannelName" destination="Scu-3O-Laf" id="X3d-Lz-Syx"/>
                         <outlet property="menuBtn" destination="Svu-gc-Fvn" id="CsD-NU-RWZ"/>
+                        <outlet property="tfMessageBox" destination="Rr3-Ce-wkM" id="Wz8-NC-pru"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="K5F-wS-n7k" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -602,6 +628,7 @@
         <image name="dark0" width="100" height="100"/>
         <image name="menuProfileIcon" width="99" height="99"/>
         <image name="profileDefault" width="192" height="192"/>
+        <image name="send" width="30" height="30"/>
         <image name="smackBack" width="28" height="28"/>
         <image name="smackBurger" width="40" height="40"/>
         <image name="smackLogo" width="48" height="40"/>

@@ -6,6 +6,7 @@ class MessageService {
     static let instance = MessageService()
     
     var channels = [Channel]()
+    var messages = [Message]()
     var selectedChannel: Channel?
     
     func findAllChannel(completion: @escaping CompletionHandler) {
@@ -33,6 +34,27 @@ class MessageService {
         let decoder = JSONDecoder()
         guard let channel = try? decoder.decode([Channel].self, from: data) else { return }
         channels = channel
+    }
+    
+    func findAllMessageForChannel(channelId: String, completion: @escaping CompletionHandler) {
+        AF.request("\(URL_GET_MESSAGES)\(channelId)", method: .get, parameters: nil, encoding: JSONEncoding.default, headers: BEARER_HEADER).responseJSON { response in
+            switch response.result {
+            case .success:
+                self.clearMessages()
+                guard let data = response.data else { return }
+                let decoder = JSONDecoder()
+                guard let message = try? decoder.decode([Message].self, from: data) else { return }
+                self.messages = message
+                completion(true)
+            case .failure(let error):
+                completion(false)
+                debugPrint(error as Any)
+            }
+        }
+    }
+    
+    func clearMessages() {
+        messages.removeAll()
     }
     
     func clearChannels() {
